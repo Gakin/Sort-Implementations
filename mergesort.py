@@ -1,6 +1,9 @@
 class MergeSort:
+	
+	def __init__(self):
+		pass
 		
-	def mergeSort(argList):
+	def mergeSort(self,argList):
 	
 		sortedList = []
 	
@@ -17,7 +20,7 @@ class MergeSort:
 		rightIndex = 0
 		listIndex = 0
 		
-		
+		#there is some mistake in the merge step currently will be checked !
 		#Sorts in increasing order
 		while leftIndex < len(sortedLeftList) and rightIndex < len(sortedRightList):
 			if sortedLeftList[leftIndex] >= sortedRightList[rightIndex]:
