@@ -18,7 +18,7 @@ class MergeSort:
         rightIndex = 0
         listIndex = 0
 
-
+		#Test !
         #Sorts in increasing order
 		#Lose The Indexes since it is in python :3
         while leftIndex < len(sortedLeftList) and rightIndex < len(sortedRightList):
