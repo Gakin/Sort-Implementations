@@ -1,54 +1,42 @@
 class MergeSort:
-	
-	def __init__(self):
-		pass
-		
-	def mergeSort(self,argList):
-	
-		sortedList = []
-	
-		if len(argList) == 1:
-			return argList
-		
-		leftList = argList[0:len(argList)/2]
-		rightList = argList[(len(argList)/2)+1:len(argList)-1]
-		
-		sortedLeftList = mergeSort(leftList)
-		sortedRightList = mergeSort(rightList)
-		
-		leftIndex = 0
-		rightIndex = 0
-		listIndex = 0
-		
-		#there is some mistake in the merge step currently will be checked !
-		#Sorts in increasing order
-		while leftIndex < len(sortedLeftList) and rightIndex < len(sortedRightList):
-			if sortedLeftList[leftIndex] >= sortedRightList[rightIndex]:
-				sortedList[listIndex] = sortedRightList[rightIndex]
-				rightIndex += 1
-				listIndex += 1
-			else:
-				sortedList[listIndex] = sortedLefttList[leftIndex]
-				leftIndex += 1
-				listIndex += 1
-				
-		if leftIndex == len(sortedLeftList):
-			while rightIndex < len(sortedRightList):
-				sortedList[listIndex] = sortedRightList[rightIndex]
-				rightIndex += 1
-				listIndex += 1
-				
-		else:
-			while leftIndex < len(sortedLeftList):
-				sortedList[listIndex] = sortedLefttList[leftIndex]
-				leftIndex += 1
-				listIndex += 1
-		
-		return sortedList
-		
-		
+
+    def __init__(self):
+        pass
+
+    def mergeSort(self, argList):
+
+        sortedList = []
+
+        if len(argList) == 1:
+            return argList
+
+        mid = int(len(argList)/2)
+        sortedLeftList = self.mergeSort(argList[:mid])
+        sortedRightList = self.mergeSort(argList[mid:])
+
+        leftIndex = 0
+        rightIndex = 0
+        listIndex = 0
+
+
+        #Sorts in increasing order
+        while leftIndex < len(sortedLeftList) and rightIndex < len(sortedRightList):
+            if sortedLeftList[leftIndex] > sortedRightList[rightIndex]:
+                sortedList += [sortedRightList[rightIndex]]
+                rightIndex += 1
+            else:
+                sortedList += [sortedLeftList[leftIndex]]
+                leftIndex += 1
+
+        sortedList += sortedLeftList[leftIndex:]
+        sortedList += sortedRightList[rightIndex:]
+
+        return sortedList
+
+
 if __name__ == "__main__":
-    sorter = MergeSort()
+
     toBeSortedList = [5,3,8,2,1,9,7]
+    sorter = MergeSort()
     myList = sorter.mergeSort(toBeSortedList)
-    print myList[0]
+    print myList
