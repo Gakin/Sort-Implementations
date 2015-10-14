@@ -28,5 +28,5 @@ if __name__ == "__main__":
 
     toBeSortedList = [5,3,8,2,1,9,7]
     sorter = QuickSort()
-    myList = sorter.quickSort(toBeSortedList,0,len(toBeSortedList))
+    myList = sorter.quickSort(toBeSortedList,0,len(toBeSortedList)-1)
     print myList
